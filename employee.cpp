@@ -199,77 +199,42 @@ void update(){
 }
 
 }
-
 void del(){
-
 	if(total!=0){
-
 	int press;
-
 	cout<<"Press 1 to delete specific record"<<endl;
-
 	cout<<"Press 2 to delete full record"<<endl;
-
 	cin>>press;
+		if(press==1){
+			string id;
+			cout<<"Enter id of employee which you want to delete"<<endl;
+			cin>>id;
+			for(int i=0;i<total;i++){
+				if(e[i].id==id){
+					e[i].name=e[i+1].name;
+					e[i].id=e[i+1].id;
+					e[i].address=e[i+1].address;
+					e[i].contact=e[i+1].contact;
+					e[i].salary=e[i+1].salary;
+					total--;
+					cout<<"Your required record is deleted"<<endl;
+					break;
+				}
 
-	if(press==1){
+				if(i==total-1){
 
-		string id;
-
-		cout<<"Enter id of employee which you want to delete"<<endl;
-
-		cin>>id;
-
-		for(int i=0;i<total;i++){
-
-			if(e[i].id==id){
-
-				e[i].name=e[i+1].name;
-
-				e[i].id=e[i+1].id;
-
-				e[i].address=e[i+1].address;
-
-				e[i].contact=e[i+1].contact;
-
-				e[i].salary=e[i+1].salary;
-
-				total--;
-
-				cout<<"Your required record is deleted"<<endl;
-
-				break;
-
+				cout<<"No such record found"<<endl;
 			}
-
-			if(i==total-1){
-
-			cout<<"No such record found"<<endl;
-
+			}
+		}else if(press==2){
+			total=0;
+			cout<<"All record is deleted"<<endl;
+		}else{
+			cout<<"Invalid Input"<<endl;
 		}
 
-		}
-
-	}
-
-	else if(press==2){
-
-		total=0;
-
-		cout<<"All record is deleted"<<endl;
-
-	}
-
-	else{
-
-		cout<<"Invalid Input"<<endl;
-
-	}
-
-}else{
-
+	}else{
 	cout<<"No data is entered"<<endl;
-
 }
 
 }
